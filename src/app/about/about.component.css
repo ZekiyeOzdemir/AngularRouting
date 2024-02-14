@@ -1,0 +1,76 @@
+.container{
+    margin: 0px 0px;
+    padding: 10px 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    background-color: rgba(232, 232, 232, 0.618);
+}
+.column {
+    float: left;
+    width: 33%;
+    margin-bottom: 16px;
+    padding: 0 8px;
+  }
+  
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 5px 5px;
+    padding: 5px 5px;
+}
+
+.about-section {
+    padding: 50px;
+    text-align: center;
+    color: #000;
+}
+.container {
+    padding: 0 16px;
+}
+
+.container::after, .row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.title {
+    color: grey;
+}
+
+.btt {
+    display: flex;
+    justify-content: center;
+}
+
+.btt button {
+    border: none;
+    outline: 0;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    margin: 20px 0px;
+}
+
+.btt button:hover {
+    background-color: #555;
+}
+
+button {
+    border: none;
+    outline: 0;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    margin: 20px 0px;
+}
+
+@media screen and (max-width: 650px) {
+    .column {
+        width: 100%;
+        display: block;
+    }
+}

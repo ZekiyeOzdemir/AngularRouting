@@ -1,0 +1,36 @@
+<div class="course-container">
+    <div>
+        <img src="{{course.image}}" width="560" height="280">
+    </div>
+    <div>
+        <h1 style="text-align: center;" *ngIf="!editMode">{{course.name}}</h1>
+        <div style="text-align: center;" *ngIf="editMode">
+            <input type="text" [(ngModel)]="course.name">
+        </div>
+    </div>
+    <div class="course-details">
+        <div style="margin: 0px 10px;"><b>Author: </b>{{course.author}}</div>
+        <div style="margin: 0px 10px;"><b>Duration: </b>{{course.duration}}</div>
+        <div style="margin: 0px 10px;"><b>Type: </b>{{course.type}}</div>
+    </div>
+    <div style="margin: 0px 10px;">
+        <h2>Price: {{course.price}}$</h2>
+    </div>
+    <div style="margin: 20px 10px;">
+        <p>{{course.description}}</p>
+    </div>
+    <!-- snapshot vs observable 
+    kurslar bolumunden herhangi bir kursa tikladiktan sonra go to first course butonuna tikladiktan sonra (ornegin id=103 iken) path'de Courses/Course/101 icerigi geldi fakat 101 idli kursun icerigi sayfaya gelmedi (snapshot ile olan kodda).
+    Bunun sebebi route parametresinin (id) valuesunu ngOnInit icinde retrieve ediyoruz (aliyoruz). Ve bu ngOnInit life cycle hook sadece tek bir kez cagriliyor.  
+    -->
+    <a [routerLink]="['/Courses/Course', 101]">Go to first course</a>
+    <!-- query PARAMETERS, queryParams is attribute parameters so we surrended it with []
+    in queryParams we can write its values with pairs
+    -->
+    <!-- we can do this programmaticly too
+    <button [routerLink]="['/Courses/Course', course.id]" [queryParams]="{edit: true}">Edit</button> -->
+
+    <button (click)="appendQueryParam()">Edit</button>
+    <!-- burada [routerLink]="['Courses/Course', course.id]" course.id router parametresi oluyor -->
+    <button (click)="editMode=false" [routerLink]="['/Courses/Course', course.id]">Update</button>
+</div>
